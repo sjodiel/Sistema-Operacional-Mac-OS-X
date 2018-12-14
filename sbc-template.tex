@@ -1,7 +1,8 @@
 \documentclass[12pt]{article}
 
 \usepackage{sbc-template}
-
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
 \usepackage{graphicx,url}
 
 \usepackage[brazil]{babel}   
@@ -12,23 +13,15 @@
      
 \sloppy
 
-\title{Sistema Operacional Mac OS X}
+\title{Sistema Operacional MAC OS X}
 
-\author{Jodiel Fabricio Dias dos Santos\inst{1}, Rafael H. Bordini\inst{2}, Flávio Rech
-  Wagner\inst{1}, Jomi F. Hübner\inst{3} }
+\author{Jodiel Fabricio Dias dos Santos\inst{1} }
 
 
-\address{Instituto de Informática -- Universidade Federal do Rio Grande do Sul
-  (UFRGS)\\
-  Caixa Postal 15.064 -- 91.501-970 -- Porto Alegre -- RS -- Brazil
-\nextinstitute
-  Department of Computer Science -- University of Durham\\
-  Durham, U.K.
-\nextinstitute
-  Departamento de Sistemas e Computação\\
-  Universidade Regional de Blumenal (FURB) -- Blumenau, SC -- Brazil
-  \email{\{nedel,flavio\}@inf.ufrgs.br, R.Bordini@durham.ac.uk,
-  jomi@inf.furb.br}
+\address{Departamento de Informática -- Universidade Federal do Maranhão
+  (UFMA)\\
+  Cidade Universitária -- São Luís -- MA -- Brasil
+  \email{jodielfabricio@gmail.com}
 }
 
 \begin{document} 
@@ -36,142 +29,141 @@
 \maketitle
 
 \begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
+  Summary of key features of the MAC OS X operating system.
 \end{abstract}
-     
+
 \begin{resumo} 
-  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
-  resumos de artigos para publicação nos anais das conferências organizadas
-  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  página do artigo.
+  Resumo das principais características do Sistema Operacional MAC OS X.
 \end{resumo}
 
+\section{Gerenciamento de Processos}\label{sec:firstpage}
+ 
+\subsection{Escalonamento de Processos}
+O escalonador de processos do MAC OS X é derivado do escalonador OSFMK, porém várias modificações foram feitas para o tratamento de interatividade no projeto de escalonador base.
 
-\section{General Information}
-
-All full papers and posters (short papers) submitted to some SBC conference,
-including any supporting documents, should be written in English or in
-Portuguese. The format paper should be A4 with single column, 3.5 cm for upper
-margin, 2.5 cm for bottom margin and 3.0 cm for lateral margins, without
-headers or footers. The main font must be Times, 12 point nominal size, with 6
-points of space before each paragraph. Page numbers must be suppressed.
-
-Full papers must respect the page limits defined by the conference.
-Conferences that publish just abstracts ask for \textbf{one}-page texts.
-
-\section{First Page} \label{sec:firstpage}
-
-The first page must display the paper title, the name and address of the
-authors, the abstract in English and ``resumo'' in Portuguese (``resumos'' are
-required only for papers written in Portuguese). The title must be centered
-over the whole page, in 16 point boldface font and with 12 points of space
-before itself. Author names must be centered in 12 point font, bold, all of
-them disposed in the same line, separated by commas and with 12 points of
-space after the title. Addresses must be centered in 12 point font, also with
-12 points of space after the authors' names. E-mail addresses should be
-written using font Courier New, 10 point nominal size, with 6 points of space
-before and 6 points of space after.
-
-The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
-indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
-should be written in boldface and must precede the text.
-
-\section{CD-ROMs and Printed Proceedings}
-
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
-
-\section{Sections and Paragraphs}
-
-Section titles must be in boldface, 13pt, flush left. There should be an extra
-12 pt of space before each title. Section numbering is optional. The first
-paragraph of each section should not be indented, while the first lines of
-subsequent paragraphs should be indented by 1.27 cm.
-
-\subsection{Subsections}
-
-The subsection titles must be in boldface, 12pt, flush left.
-
-\section{Figures and Captions}\label{sec:figs}
-
-
-Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
-both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
-be Helvetica, 10 point, boldface, with 6 points of space before and after each
-caption.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.5\textwidth]{fig1.jpg}
-\caption{A typical figure}
-\label{fig:exampleFig1}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
-\end{figure}
-
-In tables, try to avoid the use of colored or shaded backgrounds, and avoid
-thick, doubled, or unnecessary framing lines. When reporting empirical data,
-do not use more decimal digits than warranted by their precision and
-reproducibility. Table caption must be placed before the table (see Table 1)
-and the font used must also be Helvetica, 10 point, boldface, with 6 points of
-space before and after each caption.
-
+Assim como o kernel do FreeBSD, o escalonador de processos do Mac OS X escalona os processos baseado numa variante do algoritmo de múltiplas filas com realimentação, porém divide as filas de prioridades em 4 grupos de processos, agrupados de acordo com suas características, conforme é descrito na Tabela~\ref{tabela1}.
 \begin{table}[ht]
-\centering
-\caption{Variables to be considered on the evaluation of interaction
-  techniques}
-\label{tab:exTable1}
-\smallskip
-\begin{tabular}{|l|c|c|}
+\begin{tabular}{|c|c|}
 \hline
-& Value 1 & Value 2\\[0.5ex]
-\hline
-&&\\[-2ex]
-Case 1 & 1.0 $\pm$ 0.1 & 1.75$\times$10$^{-5}$ $\pm$ 5$\times$10$^{-7}$\\[0.5ex]
-\hline
-&&\\[-2ex]
-Case 2 & 0.003(1) & 100.0\\[0.5ex]
-\hline
+\textbf{Grupo de Filas} & \textbf{Características} \\ \hline
+Normal & Prioridade das aplicações normais do usuário \\ \hline
+Sistema & \begin{tabular}[c]{@{}c@{}}Prioridade das aplicações do sistema, com prioridade superior \\ as threads normais de usuário\end{tabular} \\ \hline
+Kernel & \begin{tabular}[c]{@{}c@{}}Classe reservada para threads em espaço de kernel que necessitam rodar\\ em uma prioridade superior as threads de sistema (como a thread de\\ descalonamento de E/S, por exemplo)\end{tabular} \\ \hline
+Tempo Real & \begin{tabular}[c]{@{}c@{}}Threads nas quais a prioridade está baseada na necessidade de reservar\\ uma fração pré-definida de ciclos de clock, independente de outras\\ atividades sendo executadas no sistema\end{tabular} \\ \hline
 \end{tabular}
+\caption{Grupos de Filas de Processos no Escalonador do MAC OS X}
+\label{tabela1}
 \end{table}
 
-\section{Images}
+No caso de tarefas de tempo real, é feito um controle forte pela aplicação no número de ciclos do processador a serem utilizados. Assim, o programador utiliza chamadas de sistema para requisitar ao sistema rodar por A ciclos nos próximos B ciclos. 
 
-All images and illustrations should be in black-and-white, or gray tones,
-excepting for the papers that will be electronically available (on CD-ROMs,
-internet, etc.). The image resolution on paper should be about 600 dpi for
-black-and-white images, and 150-300 dpi for grayscale images.  Do not include
-images with excessive resolution, as they may take hours to print, without any
-visible difference in the result. 
+\subsection{Mach Scheduling}
+\begin{itemize}
+    \item Suporta Tempo-Compartilhado e Prioridade-Fixa;
+    \item Prioridades: Normal, Alta-Prioridade de Sistema, Somente modo-Kernel e Theads de Tempo-Real;
+    \item Theads de prioridade de Tempo-Real geralmente são de prioridade Fixa;
+    \item Threads de prioridade fixa executam por um pré-determinado período de tempo ou até que uma thread de prioridade maior queira executar. Então ela é colocada no fim da fila daquela prioridade (normal);
+    \item Threads de Tempo-Real: Uma thread pode dizer ao agendador que ela precisa rodar por 3000 ciclos dos próximos 7000, além de dizer se precisam ser contínuos ou não. Obviamente, longo ciclos contínuos podem ser custosos, mas também necessários;
+    \item Se uma thread de tempo-real não respeita o tempo de processamento indicada ela é penalizada e pode até ser rebaixada a uma prioridade “normal”;
+    \item Threads que usam muito tempo do processador recebem uma prioridade baixa para evitar que threads de prioridade alta monopolizem o processador. As de prioridade alta devem executar rapidamente e liberar o recurso.
+\end{itemize}
+\subsection{Comunicação Inter-Processos}
+\begin{itemize}
+    \item Tarefas clientes acessam serviços de tarefas servidoras por um canal de comunicação (ports);
+    \item Tarefas mantém, repassam e obtém direitos sobre os ports;
+    \item As “pontas” destes canais são chamadas ports. Os port-rights denotam as permissões para usar estes canais. Eles são o mecanismo fundamental de segurança no Mach. Ter um right, é ter a capacidade de acessar ou manipular um objeto.
+    \item Comunicação por: filas de mensagens, semáforos, notificações, lock sets e RPCs (Remote Procedure Calls).
+    \item Várias tarefas podem manter o direito de enviar (write) mensagens para filas, mas só uma pode ter o direito de lê-la. Mensagens podem ser dados puros, cópias de memory ranges, direitos de ports, e mais... (são assíncronas).
+    \item Semáforos suportam wait, post e post all.
+    \item Lock Sets: mutex sobre uma seção crítica.
+\end{itemize}
 
-\section{References}
+\section{Gerenciamento de Memória}
+\subsection{Características Principais}
+\begin{itemize}
+    \item Paginação sob demanda;
+    \item External Memory Management Interface (EMMI);
+    \item Named Memory Entries;
+    \item Lazy Evaluation de Memória Copiada (Shadows Objects);
+    \item Memory Maps;
+    \item Herança de Named Regions;
+    \item UPLs.
+\end{itemize}
 
-Bibliographic references must be unambiguous and uniform.  We recommend giving
-the author names references in brackets, e.g. \cite{knuth:84},
-\cite{boulic:91}, and \cite{smith:99}.
+No MAC OS X, cada processo tem o seu próprio conjunto (32bits ou 64 bits) de espaço de endereço virtual. Para processos de 32 bits, cada processo tem um espaço que pode endereçar dinamicamente chegando ao limite de 4GB. Para processo de 64 bits, cada processo pode endereçar dinamicamente até o limite de 18 exabytes.
 
-The references must be listed using 12 point font size, with 6 points of space
-before each reference. The first line of each reference should not be
-indented, while the subsequent should be indented by 0.5 cm.
+Além do VM Subsystem baseado no Core-Mach, o gerenciamento de memória do MAC OSX engloba diversos outros mecanismos, alguns dos quais não são partes estritamente do sistema VM, mas estão intimamente relacionados.
 
-\bibliographystyle{sbc}
-\bibliography{sbc-template}
+O Subsistema VM do kernel Mach consiste do módulo machine-dependent phisical map (pmap) e outros módulos machine-independent para gerenciar a estrutura de dados, tais como os virtual address space maps (VM maps). O Kernel exporta diversas rotinas para o Espaço do Usuário (user space) como parte de Mach VM API.
+
+O kernel usa o UPL (Universal Page List), Estrutura de Dados para descrever como delimitar um conjunto de páginas físicas. O UPL é criado baseado na associação das páginas (pages) com o Objetos VM (objects VM). UPLs incluem vários atributos das páginas que descrevem. Subsistemas do Kernel, particularmente o File System, usam UPLs para se comunicar com o subsistema VM.
+
+O UBC (Unified Buffer Cache) constitui um conjunto de páginas para armazenar (caching) o conteúdo dos arquivos e as porções anônimas do espaço de endereços. Memória anônima não é sustentada por arquivos regulares, dispositivos, ou mesmo alguma outra fonte de memória e o exemplo mais comum é a memória alocada dinamicamente. 
+
+O Kernel inclui 3 paginadores internos: o paginador padrão (anônimo), o paginador para dispositivos e o paginador para vnode. Eles tratam operações de entrada e saída sobre regiões da memória. Os paginadores comunicam-se com o Subsistema Mach-VM utilizando interfaces UPL e derivadas do paginador do Mach.
+
+Ao contrário da maioria dos sistemas operacionais baseados em UNIX, o MAC OS X não usa uma pré-partição swap para a memória virtual. Em vez disso, ele usa todo o espaço disponível na máquina da partição de
+boot.
+\subsection{Memória Compartilhada}
+Memória compartilhada é a memória que pode ser escrita ou lida a partir de dois ou mais processos. Memória partilhada pode ser herdada a partir de um processo-mãe, criado por um servidor de memória compartilhada, ou explicitamente criado por um pedido de exportação para outras aplicações. O uso da memória compartilhada/partilhada incluem no MAC OS X:
+
+\begin{itemize}
+    \item Compartilhando grandes recursos, como ícones ou sons;
+    \item Rápida a comunicação entre um ou mais processos.
+\end{itemize}
+\subsection{Wired Memory}
+Wired memory (também chamado de memória residente) armazena código kernel e estruturas de dados, que nunca deve ser paginada para o disco.
+Cada thread criada, cada subprocesso bifurcado, e cada biblioteca ligada
+contribui para a ocupação da memória residente do sistema.
+As medidas mudam a cada nova versão do MAC OS X.
+
+Além das solicitações de Wired-Memory geradas no nível do usuário, as seguintes entidades do kernel utilizam wired-memory:
+\begin{itemize}
+    \item VM objetos;
+    \item A memória virtual buffer cache;
+    \item I/O buffer caches;
+    \item Condutores
+\end{itemize}
+\section{Gerenciamento de E/S}
+
+O Mac OS X fornece um ambiente para interface com dispositivos de entrada e saída, além de uma arquitetura para o desenvolvimento de drivers. O conjunto ambiente e arquitetura é chamado de \textit{I/O Kit}. 
+
+A arquitetura da I/O Kit fornece uma interface orientada a objetos em um subconjunto de C++ (Embedded C++) para modelar a hierarquia de hardware em software. A funcionalidade comum a diferentes dispositivos é encapsulada em classes (também chamadas de famílias), que são herdadas pelos drivers desses dispositivos.
+
+A I/O Kit também fornece um ambiente de execução protegido para drivers. Esse ambiente é baseado na ideia de que drivers podem ser dinamicamente carregados e descarregados. Assim, todo driver deve gerenciar seu ciclo de vida. Ainda, quando um dispositivo é encontrado, o sistema deve procurar um driver que corresponda àquele dispositivo. Essa função é também realizada pelos nubs. 
+
+O I/O Kit fornece ainda uma interface para controle de dispositivos em nível de usuário. Isso permite que o uso de memória do kernel seja minimizado, o que é importante porque o kernel deve sempre estar na memória física. Essencialmente, o usuário especifica em seu programa que dispositivo ele deseja acessar. O kernel então procura o driver correspondente (usando os nubs) e executa a função requisitada de uma maneira controlada. 
+
+
+\section{Sistema de Arquivos}
+\subsection{HFS+}
+O sistema de arquivos padrão do MAC OS X é o HFS+ (Hierarchical File System Plus, ou Sistema de Arquivos Hierárquico Mais). Sua instância fundamental é o volume, que pode estar em um disco, uma parte deste ou vários discos em conjunto. Os blocos de alocação são a unidade elementar onde são alocados os arquivos, e seu tamanho corresponde a um múltiplo do tamanho do setor do dispositivo utilizado, sendo o mais comum 512 bytes, o que contrasta com o bloco de alocação padrão do MAC OS X, que é de 4KB, sendo que este pode chegar a 1MB (tamanho definido artificialmente no arquivo /sys/param.h). O espaço de armazenamento usa números de bloco de alocação de 32 bits com alocação postergada de blocos físicos.
+
+Quanto a fragmentação, a implementação do UFS herdada do sistema BSD presente no HFS+ emprega uma unidade adicional, complementando o bloco, chamado fragmento, que é uma fração deste a ser compartilhada entre arquivos.
+
+O HFS+ é um sistema de arquivos que suporta nomes de arquivos e diretórios até 255 caracteres codificados em Unicode UTF-8 , arquivos de até 8 exabytes e múltiplos mecanismos de referenciação através de aliases, hard links e links simbólicos.
+
+\subsection{Controle de Acesso e Permissões}
+A partir da versão 10.4 do sistema operacional, são suportados pelo sistema de arquivos simultaneamente ACLs (listas de controle de acesso), que são armazenadas como atributos estendidos, permissões de arquivos no estilo Unix-Like e Flags de arquivo no estilo BSD (append-only, immutable, undeletable, etc.).
+
+Todas as chamadas do gerenciador de arquivos do MAC OS X, no entanto, são subsidiadas pelo subsistema BSD, que como qualquer Unix-Like no que diz respeito a proteção de escrita, não provê nenhum lock para arquivos abertos por múltiplas aplicações. Existe aprovisionamento ainda para o armazenamento de múltiplos timestamps para cada objeto do sistema de arquivos.
+
+\subsection{Bundles e Fork de Arquivo}
+O sistema operacional suporta um tipo especial, chamado File Fork (Ramificação de Arquivo, em tradução livre) que encapsula vários arquivos dentro
+de um único, tendo dois sempre presentes, o data fork e o resource fork, armazenados em árvores-B separadas. Outro conceito particular do MAC OS X são os Bundles. Estes são uma coleção de recursos relacionados empacotados como numa hierarquia de diretórios. 
+\subsection{Outras Características }
+\begin{itemize}
+    \item Otimizações: Desfragmentação On-the-Fly e Zona de meta-dados;
+    \item Camada VFS;
+    \item O sistema de arquivos HFS+ não suporta sparse files (arquivos dispersos), que é a técnica de preencher com zeros espaços em branco que ficam entre arquivos de sistema, para que sejam vistos como um único arquivo, sem com isso ocupar mais espaço em disco.
+\end{itemize}
+
+%\bibliographystyle{sbc}
+%\bibliography{sbc-template}
+\bibliography{sbc2}
+\nocite{apple}
+\nocite{iokit}
+\nocite{file}
+\nocite{wiki}
 
 \end{document}
